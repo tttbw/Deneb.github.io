@@ -1,0 +1,567 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN"
+            
+          
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        一个基于unity的programming learning解谜游戏的设想的demo |
+        
+        浪人隨筆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="../../../../css/loader.css">
+
+    <meta name="description" content="这是笔者公选课《游戏程序设计基础》的作业，一个对解谜游戏和编程学习结合的设想（部分灵感来源：幽默之CV工程师超级小桀玩《i hate this game》）       在这个demo中，player需要阅读两块路牌中的信息，特别是第二块记录了箱子类定义的信息：   12345678class box &#123;  def _init_(self):    self.contain &#x3D; [ ]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个基于unity的programming learning解谜游戏的设想的demo">
+<meta property="og:url" content="https://tttbw.github.io./2023/11/12/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8Eunity%E7%9A%84programming-learning%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%84%E8%AE%BE%E6%83%B3%E7%9A%84demo/index.html">
+<meta property="og:site_name" content="浪人隨筆">
+<meta property="og:description" content="这是笔者公选课《游戏程序设计基础》的作业，一个对解谜游戏和编程学习结合的设想（部分灵感来源：幽默之CV工程师超级小桀玩《i hate this game》）       在这个demo中，player需要阅读两块路牌中的信息，特别是第二块记录了箱子类定义的信息：   12345678class box &#123;  def _init_(self):    self.contain &#x3D; [ ]">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-12T07:47:58.000Z">
+<meta property="article:modified_time" content="2024-01-15T16:46:50.278Z">
+<meta property="article:author" content="Deneb">
+<meta property="article:tag" content="unity2d">
+<meta property="article:tag" content="homework">
+<meta property="article:tag" content="programming learning">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" href="../../../../atom.xml" title="浪人隨筆" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="../../../../images/favicon.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="../../../../css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">Loading...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="/images/tsunami.jpg" data-sizes="auto" alt="一个基于unity的programming learning解谜游戏的设想的demo" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="../../../../index.html" id="logo"><h1>一个基于unity的programming learning解谜游戏的设想的demo</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="../../../../index.html">首页</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="../../../../archives">归档</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="../../../../about">关于</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="../../../../friend">友链</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml"
+                       title="RSS 订阅"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tttbw.github.io."></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-一个基于unity的programming-learning解谜游戏的设想的demo" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="" class="article-date-link">
+        <time datetime="2023-11-12T07:47:58.000Z"
+              itemprop="datePublished">2023-11-12</time>
+    </a>
+</div>
+
+            
+    <div class="article-category wow slideInLeft">
+        <a class="article-category-link" href="../../../../categories/%E8%89%BA%E6%9C%AF%E5%88%9B%E4%BD%9C/">艺术创作</a>
+    </div>
+
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <h3 id="这是笔者公选课《游戏程序设计基础》的作业，一个对解谜游戏和编程学习结合的设想（部分灵感来源：幽默之CV工程师超级小桀玩《i-hate-this-game》）"><a href="#这是笔者公选课《游戏程序设计基础》的作业，一个对解谜游戏和编程学习结合的设想（部分灵感来源：幽默之CV工程师超级小桀玩《i-hate-this-game》）" class="headerlink" title="这是笔者公选课《游戏程序设计基础》的作业，一个对解谜游戏和编程学习结合的设想（部分灵感来源：幽默之CV工程师超级小桀玩《i hate this game》）"></a>这是笔者公选课《游戏程序设计基础》的作业，一个对解谜游戏和编程学习结合的设想（部分灵感来源：幽默之CV工程师超级小桀玩《i hate this game》）</h3><blockquote>
+<iframe width="850" height="535" src="//player.bilibili.com/player.html?aid=920772882&bvid=BV1Lu4y1N7f3&cid=1329859628&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe> 
+</blockquote>
+<blockquote>
+<blockquote>
+<p>在这个demo中，player需要阅读两块路牌中的信息，特别是第二块记录了箱子类定义的信息：</p>
+</blockquote>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class box &#123;</span><br><span class="line">  def _init_(self):</span><br><span class="line">    self.contain = [ ]  </span><br><span class="line">    self.opened = false </span><br><span class="line">  def open(self):</span><br><span class="line">    self.opened = true  &#125;</span><br><span class="line">the_box = box()</span><br><span class="line">the_box.contain.append(key)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<blockquote>
+<p>这段代码用python实现定义了一个box类，并创建了一个游戏里箱子的instance（就是玩家面前的箱子。）对于box类玩家首先需要阅读出它有两个Class Attribute：contain属性用列表的形式储存box的内容物，而opened属性默认为关闭。玩家要做的就是先调用open（）的方法打开箱子，并用python中列表的“[__]”方法来访问箱子中的钥匙以通过这个场景。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="这个DEMO的三个脚本"><a href="#这个DEMO的三个脚本" class="headerlink" title="这个DEMO的三个脚本"></a>这个DEMO的三个脚本</h3><ol>
+<li><strong>CheckInput</strong>:实现输入正确的代码后对物件进行操作（如打开箱子，销毁箱子）<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using UnityEngine.UI;</span><br><span class="line">public class CheckInput : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    // 输入框组件的引用</span><br><span class="line">    public InputField inputField;</span><br><span class="line">    // 文本框组件的引用</span><br><span class="line">    public Text inputText;</span><br><span class="line">    // 箱子模型的引用</span><br><span class="line">    public GameObject box;</span><br><span class="line">    // 箱子打开的动画组件的引用</span><br><span class="line">    public Animator boxAnimator;</span><br><span class="line">    // 获得物品的名字</span><br><span class="line"></span><br><span class="line">    // 正确的文字</span><br><span class="line">    public string correctText1;</span><br><span class="line">    public string correctText2;</span><br><span class="line"></span><br><span class="line">    // refenrence to computer object</span><br><span class="line">    public GameObject pc;</span><br><span class="line"></span><br><span class="line">    // 检测输入框的值是否正确</span><br><span class="line">    public void CheckInputValue()</span><br><span class="line">    &#123;</span><br><span class="line">        // 获取输入框的值</span><br><span class="line">        string input = inputField.text;</span><br><span class="line">        // 如果输入框的值等于正确的文字</span><br><span class="line">        if (input == correctText1)</span><br><span class="line">        &#123;</span><br><span class="line">           </span><br><span class="line">            boxAnimator.SetTrigger(&quot;Open&quot;);</span><br><span class="line">            Destroy(pc);</span><br><span class="line">        &#125;</span><br><span class="line">        if (input == correctText2)&#123;</span><br><span class="line"></span><br><span class="line">            Destroy(box);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">      void Update() </span><br><span class="line">    &#123;</span><br><span class="line">        CheckInputValue();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<ol start="2">
+<li><strong>Playercontroller</strong>:实现了角色的左右移动（包括对指定动画进行调用切换）和跳跃功能（本DEMO中未使用）。左右移动的代码照抄了M_Studio的教程，跳跃功能则是笔者照藤摸瓜自己实现的。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">using System.Security.Cryptography;</span><br><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class PlayerController : MonoBehaviour</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    Rigidbody2D rb;</span><br><span class="line">    Animator anim;</span><br><span class="line">    public float speed;</span><br><span class="line">    float xVelocity;</span><br><span class="line">   </span><br><span class="line">    public bool isOnGround;</span><br><span class="line">  </span><br><span class="line">    public float jumpForce;</span><br><span class="line"></span><br><span class="line">    public bool jumpInput;</span><br><span class="line"></span><br><span class="line">    public bool Start_jump;</span><br><span class="line"></span><br><span class="line">    public bool Start_landing;</span><br><span class="line"></span><br><span class="line">    // Start is called before the first frame update</span><br><span class="line">    void Start()</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        rb=GetComponent&lt;Rigidbody2D&gt;();</span><br><span class="line">        </span><br><span class="line">        anim=GetComponent&lt;Animator&gt;();</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">      </span><br><span class="line"></span><br><span class="line">      Anime_trans();</span><br><span class="line"></span><br><span class="line">      Movement();</span><br><span class="line"></span><br><span class="line">      Jump();    </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void Movement()</span><br><span class="line">    &#123;</span><br><span class="line">        xVelocity=Input.GetAxisRaw(&quot;Horizontal&quot;);</span><br><span class="line">        </span><br><span class="line">        rb.velocity=new Vector2(xVelocity*speed,rb.velocity.y);</span><br><span class="line">        </span><br><span class="line">        if(xVelocity!=0)</span><br><span class="line">        &#123;  </span><br><span class="line">        transform.localScale=new Vector3(xVelocity,1,1);</span><br><span class="line">        </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void Anime_trans()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        anim.SetFloat(&quot;speed&quot;,Mathf.Abs(rb.velocity.x));//runing anime</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     void Jump()</span><br><span class="line"></span><br><span class="line">    &#123;   </span><br><span class="line">        </span><br><span class="line">        jumpInput=Input.GetKeyDown(KeyCode.UpArrow);</span><br><span class="line"></span><br><span class="line">        Start_jump=(jumpInput==true&amp;&amp;isOnGround==true);</span><br><span class="line"></span><br><span class="line">        if(Start_jump==true)</span><br><span class="line">        &#123;</span><br><span class="line">            rb.AddForce(Vector2.up*jumpForce,ForceMode2D.Impulse);</span><br><span class="line">        </span><br><span class="line">        &#125;</span><br><span class="line">    //implemnt of landing</span><br><span class="line">        if (rb.velocity.y&lt;0)</span><br><span class="line">        &#123;</span><br><span class="line">            Start_landing=true;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        else</span><br><span class="line">            &#123;</span><br><span class="line">                Start_landing=false;</span><br><span class="line">            &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<ol start="3">
+<li><strong>RoadSigh</strong>:实现了通过对玩家与告示牌的检测（这里利用的是对图层的检测，为每个需要这个方法的object设定了不同且独一无二的的图层，并与玩家的模型的进行检测）对DEMO中TIPS的 __UI与Terminal（玩家输入框）的隐藏和显示__，这个脚本写的相当之糟糕，你如果阅读可以发现我把一个方法小改复制粘贴重复用了四次，这当然可以整合到一个抽象的方法里。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">public class RoadSign : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    public Canvas signCanvas1;</span><br><span class="line">    public Canvas signCanvas2;</span><br><span class="line"></span><br><span class="line">    public Canvas signCancas3;</span><br><span class="line">    public Canvas Terminal;</span><br><span class="line"></span><br><span class="line">    public bool checkaround;</span><br><span class="line">    public GameObject aroundcheck;</span><br><span class="line">    public float checkRadius;</span><br><span class="line"></span><br><span class="line">    public LayerMask keiji1;</span><br><span class="line">    public LayerMask keiji2;</span><br><span class="line">    public LayerMask keiji3;</span><br><span class="line">    public LayerMask keiji4;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    // 在游戏开始时，隐藏画布</span><br><span class="line">    private void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        signCanvas1.enabled = false;</span><br><span class="line">        signCanvas2.enabled = false;</span><br><span class="line">        Terminal.enabled = false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 在每一帧更新时，检测玩家是否靠近或点击路牌</span><br><span class="line">    private void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        To_show_or_hide_1();</span><br><span class="line">        To_show_or_hide_2();</span><br><span class="line">        To_show_or_hide_3();</span><br><span class="line">        To_show_or_hide_4();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // check if show the canvas</span><br><span class="line">    void To_show_or_hide_1()&#123;</span><br><span class="line">        </span><br><span class="line">        checkaround=Physics2D.OverlapCircle(aroundcheck.transform.position,checkRadius,keiji1);</span><br><span class="line">        if (checkaround == true)&#123;</span><br><span class="line">            signCanvas1.enabled = true;</span><br><span class="line">        &#125;</span><br><span class="line">        if (checkaround == false)&#123;</span><br><span class="line">            signCanvas1.enabled = false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    void To_show_or_hide_2()&#123;</span><br><span class="line">        </span><br><span class="line">        checkaround=Physics2D.OverlapCircle(aroundcheck.transform.position,checkRadius,keiji2);</span><br><span class="line">        if (checkaround == true)&#123;</span><br><span class="line">            signCanvas2.enabled = true;</span><br><span class="line">        &#125;</span><br><span class="line">        if (checkaround == false)&#123;</span><br><span class="line">            signCanvas2.enabled = false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    void To_show_or_hide_3()&#123;</span><br><span class="line">        </span><br><span class="line">        checkaround=Physics2D.OverlapCircle(aroundcheck.transform.position,checkRadius,keiji3);</span><br><span class="line">        if (checkaround == true)&#123;</span><br><span class="line">            Terminal.enabled = true;</span><br><span class="line">        &#125;</span><br><span class="line">        if (checkaround == false)&#123;</span><br><span class="line">            Terminal.enabled = false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line"></span><br><span class="line">     void To_show_or_hide_4()&#123;</span><br><span class="line">        </span><br><span class="line">        checkaround=Physics2D.OverlapCircle(aroundcheck.transform.position,checkRadius,keiji4);</span><br><span class="line">        if (checkaround == true)&#123;</span><br><span class="line">            signCancas3.enabled = true;</span><br><span class="line">        &#125;</span><br><span class="line">        if (checkaround == false)&#123;</span><br><span class="line">            signCancas3.enabled = false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">     private void OnDrawGizmosSelected() &#123;</span><br><span class="line">        Gizmos.color=Color.blue;</span><br><span class="line">        Gizmos.DrawWireSphere(aroundcheck.transform.position,checkRadius);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="https://tttbw.github.io./2023/11/12/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8Eunity%E7%9A%84programming-learning%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%84%E8%AE%BE%E6%83%B3%E7%9A%84demo/" data-id="clrg6s2u80001yqwb8hbj158b" data-title="一个基于unity的programming learning解谜游戏的设想的demo"
+               class="article-share-link">分享</a>
+            
+            
+            
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/homework/" rel="tag">homework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/programming-learning/" rel="tag">programming learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/unity2d/" rel="tag">unity2d</a></li></ul>
+
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    
+                    
+                        <img data-src="/images/tsunami.jpg" data-sizes="auto" alt="长湴南大街的凌晨五点"
+                             class="lazyload">
+                    
+                
+                <a href="../../19/%E9%95%BF%E6%B9%B4%E5%8D%97%E5%A4%A7%E8%A1%97%E7%9A%84%E5%87%8C%E6%99%A8%E4%BA%94%E7%82%B9/"></a>
+                <div class="article-nav-caption">前一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        长湴南大街的凌晨五点
+                    
+                </h3>
+            </div>
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    
+                    
+                        <img data-src="/images/tsunami.jpg" data-sizes="auto" alt="你好，赛博世界的吉普赛人"
+                             class="lazyload">
+                    
+                
+                <a href="../../09/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C%E7%9A%84%E5%90%89%E6%99%AE%E8%B5%9B%E4%BA%BA/"></a>
+                <div class="article-nav-caption">后一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        你好，赛博世界的吉普赛人
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="Deneb" class="lazyload">
+            <div class="sidebar-author-name">Deneb</div>
+            <div class="sidebar-description">一个赛博吉普赛人的个人博客，分享学习和生活</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">4</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">3</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">9</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/tttbw itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="../../../../index.html"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="../../../../archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="../../../../about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="../../../../friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E8%89%BA%E6%9C%AF%E5%88%9B%E4%BD%9C/">艺术创作</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E9%9A%8F%E7%AC%94%E9%9B%86/">随笔集</a></li></ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="../../../../tags/clash/" style="font-size: 10px;">clash</a> <a href="../../../../tags/game-console/" style="font-size: 10px;">game console</a> <a href="../../../../tags/homework/" style="font-size: 10px;">homework</a> <a href="../../../../tags/programming-learning/" style="font-size: 10px;">programming learning</a> <a href="../../../../tags/unity2d/" style="font-size: 10px;">unity2d</a> <a href="../../../../tags/%E4%BA%BA%E6%96%87/" style="font-size: 10px;">人文</a> <a href="../../../../tags/%E5%B9%BF%E5%B7%9E/" style="font-size: 10px;">广州</a> <a href="../../../../tags/%E6%B8%B8%E6%88%8F%E6%9C%BA/" style="font-size: 10px;">游戏机</a> <a href="../../../../tags/%E7%BF%BB%E5%A2%99/" style="font-size: 10px;">翻墙</a>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2024/01/">一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2023/11/">十一月 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2024
+                <span class="footer-info-sep"></span>
+                Deneb
+            </div>
+            
+                <div>
+                    基于&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    2.8k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    00:09
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="Deneb" class="lazyload">
+            <div class="sidebar-author-name">Deneb</div>
+            <div class="sidebar-description">一个赛博吉普赛人的个人博客，分享学习和生活</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">4</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">3</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">9</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/tttbw itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="../../../../index.html"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="../../../../archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="../../../../about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="../../../../friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
