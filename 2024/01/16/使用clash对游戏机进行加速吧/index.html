@@ -18,16 +18,16 @@
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
  
 <link rel="stylesheet" href="/css/loader.css">
- <meta name="description" content="写这篇博客的背景是笔者学会魔法上网后一直找不到可以简单地使用代理软件对游戏机（比如一个系统更新十几个小时的NS）加速的教程，因为家里和宿舍都不是一个人，折腾路由器怕影响别人，所以摸索了一下发现了这个比较方便和适用大多数人（和用第三方加速期一样改下网络设置），能让游戏机等设备走电脑流量下载游玩游戏的方法.参考博客：https:&#x2F;&#x2F;qust.me&#x2F;post&#x2F;clashxProMac&#x2F; 来自酱紫表">
+ <meta name="description" content="一种用pc（本文macos）配合clash实现旁路网关以给游戏机加速的实操教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用clash对游戏机进行加速吧">
 <meta property="og:url" content="https://deneb.life/2024/01/16/%E4%BD%BF%E7%94%A8clash%E5%AF%B9%E6%B8%B8%E6%88%8F%E6%9C%BA%E8%BF%9B%E8%A1%8C%E5%8A%A0%E9%80%9F%E5%90%A7/index.html">
 <meta property="og:site_name" content="浪人隨筆">
-<meta property="og:description" content="写这篇博客的背景是笔者学会魔法上网后一直找不到可以简单地使用代理软件对游戏机（比如一个系统更新十几个小时的NS）加速的教程，因为家里和宿舍都不是一个人，折腾路由器怕影响别人，所以摸索了一下发现了这个比较方便和适用大多数人（和用第三方加速期一样改下网络设置），能让游戏机等设备走电脑流量下载游玩游戏的方法.参考博客：https:&#x2F;&#x2F;qust.me&#x2F;post&#x2F;clashxProMac&#x2F; 来自酱紫表">
+<meta property="og:description" content="一种用pc（本文macos）配合clash实现旁路网关以给游戏机加速的实操教程">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://deneb.life/2024/01/16/%E4%BD%BF%E7%94%A8clash%E5%AF%B9%E6%B8%B8%E6%88%8F%E6%9C%BA%E8%BF%9B%E8%A1%8C%E5%8A%A0%E9%80%9F%E5%90%A7/display.jpeg">
 <meta property="article:published_time" content="2024-01-15T16:39:49.000Z">
-<meta property="article:modified_time" content="2024-01-15T19:06:05.000Z">
+<meta property="article:modified_time" content="2024-03-10T17:38:36.764Z">
 <meta property="article:author" content="Deneb">
 <meta property="article:tag" content="clash">
 <meta property="article:tag" content="game console">
@@ -173,25 +173,26 @@
         <div class="e-content article-entry" itemprop="articleBody">
             
                 <blockquote>
-<p>写这篇博客的背景是笔者学会魔法上网后一直找不到可以简单地使用代理软件对游戏机（比如一个系统更新十几个小时的NS）加速的教程，因为家里和宿舍都不是一个人，折腾路由器怕影响别人，所以摸索了一下发现了这个比较方便和适用大多数人（和用第三方加速期一样改下网络设置），能让游戏机等设备走电脑流量下载游玩游戏的方法.<br>参考博客：<a target="_blank" rel="noopener" href="https://qust.me/post/clashxProMac/">https://qust.me/post/clashxProMac/</a> 来自酱紫表</p>
+<p>写这篇博客的背景是笔者学会魔法上网后一直找不到可以简单地使用代理软件对游戏机（比如一个系统更新十几个小时的 NS）加速的教程，因为家里和宿舍都不是一个人，折腾路由器怕影响别人，所以摸索了一下发现了这个比较方便和适用大多数人（和用第三方加速期一样改下网络设置），能让游戏机等设备走电脑流量下载游玩游戏的方法.<br>参考博客：<a target="_blank" rel="noopener" href="https://qust.me/post/clashxProMac/">https://qust.me/post/clashxProMac/</a> 来自酱紫表</p>
 </blockquote>
 <hr>
-<h2 id="一-前期准备清单（以下内容以笔者的macbook为例）"><a href="#一-前期准备清单（以下内容以笔者的macbook为例）" class="headerlink" title="一.前期准备清单（以下内容以笔者的macbook为例）"></a>一.前期准备清单（以下内容以笔者的macbook为例）</h2><blockquote>
-<p>1.clash x pro（windows用clash即可，mac必须是可以开启增强模式的 <strong>clash x pro</strong> ）<br>2.一个可以用的机场<br>3.本文默认读者会使用clash进行魔法上网</p>
+<h2 id="一-前期准备清单（以下内容以笔者的-macbook-为例）"><a href="#一-前期准备清单（以下内容以笔者的-macbook-为例）" class="headerlink" title="一.前期准备清单（以下内容以笔者的 macbook 为例）"></a>一.前期准备清单（以下内容以笔者的 macbook 为例）</h2><blockquote>
+<p>1.clash x pro（windows 用 clash 即可，mac 必须是可以开启增强模式的 <strong>clash x pro</strong> ） 2.一个可以用的机场 3.本文默认读者会使用 clash 进行魔法上网</p>
 </blockquote>
-<h3 id="原理：通过电脑做旁路由，将游戏机的默认网关设置为电脑，从而让游戏机的流量全部走电脑上机场的流量"><a href="#原理：通过电脑做旁路由，将游戏机的默认网关设置为电脑，从而让游戏机的流量全部走电脑上机场的流量" class="headerlink" title="原理：通过电脑做旁路由，将游戏机的默认网关设置为电脑，从而让游戏机的流量全部走电脑上机场的流量"></a>原理：通过电脑做旁路由，将游戏机的默认网关设置为电脑，从而让游戏机的流量全部走电脑上机场的流量</h3><h2 id="二-配置电脑网络（以macos为例）"><a href="#二-配置电脑网络（以macos为例）" class="headerlink" title="二.配置电脑网络（以macos为例）"></a>二.配置电脑网络（以macos为例）</h2><h3 id="系统设置➡️WIFI➡️连接上你家的网络➡️详细信息➡️TCP-IP➡️配置ipv4➡️手动"><a href="#系统设置➡️WIFI➡️连接上你家的网络➡️详细信息➡️TCP-IP➡️配置ipv4➡️手动" class="headerlink" title="系统设置➡️WIFI➡️连接上你家的网络➡️详细信息➡️TCP&#x2F;IP➡️配置ipv4➡️手动"></a>系统设置➡️WIFI➡️连接上你家的网络➡️详细信息➡️TCP&#x2F;IP➡️配置ipv4➡️手动</h3><p>你会看到三项：ip地址，子网掩码和路由器。选为手动配置ipv4后，将ip地址改为路由器地址最后一位随便换个数字，比如我的路由器地址是192.168.31.1，那我就把我笔记本上网的ip地址改为192.168.31.2，其他两项和自动时保持一致就行了。</p>
-<h2 id="三-配置clash"><a href="#三-配置clash" class="headerlink" title="三.配置clash"></a>三.配置clash</h2><p>右上角小猫咪点击测速确保你的机场能正常工作，然后打开增强模式。如果看到增强模式左边是一个✅则表明成功。</p>
-<h2 id="四-游戏机网络设置（以NS为例）"><a href="#四-游戏机网络设置（以NS为例）" class="headerlink" title="四.游戏机网络设置（以NS为例）"></a>四.游戏机网络设置（以NS为例）</h2><p>和使用第三方加速器一样来到互联网设置，确保你和当作旁路由的电脑处在一个网络之下</p>
+<h3 id="原理：通过电脑做旁路由，将游戏机的默认网关设置为电脑，从而让游戏机的流量全部走电脑上机场的流量"><a href="#原理：通过电脑做旁路由，将游戏机的默认网关设置为电脑，从而让游戏机的流量全部走电脑上机场的流量" class="headerlink" title="原理：通过电脑做旁路由，将游戏机的默认网关设置为电脑，从而让游戏机的流量全部走电脑上机场的流量"></a>原理：通过电脑做旁路由，将游戏机的默认网关设置为电脑，从而让游戏机的流量全部走电脑上机场的流量</h3><h2 id="二-配置电脑网络（以-macos-为例）"><a href="#二-配置电脑网络（以-macos-为例）" class="headerlink" title="二.配置电脑网络（以 macos 为例）"></a>二.配置电脑网络（以 macos 为例）</h2><h3 id="系统设置-➡️WIFI➡️-连接上你家的网络-➡️-详细信息-➡️TCP-IP➡️-配置-ipv4➡️-手动"><a href="#系统设置-➡️WIFI➡️-连接上你家的网络-➡️-详细信息-➡️TCP-IP➡️-配置-ipv4➡️-手动" class="headerlink" title="系统设置 ➡️WIFI➡️ 连接上你家的网络 ➡️ 详细信息 ➡️TCP&#x2F;IP➡️ 配置 ipv4➡️ 手动"></a>系统设置 ➡️WIFI➡️ 连接上你家的网络 ➡️ 详细信息 ➡️TCP&#x2F;IP➡️ 配置 ipv4➡️ 手动</h3><p>你会看到三项：ip 地址，子网掩码和路由器。选为手动配置 ipv4 后，将 ip 地址改为路由器地址最后一位随便换个数字，比如我的路由器地址是 192.168.31.1，那我就把我笔记本上网的 ip 地址改为 192.168.31.2，其他两项和自动时保持一致就行了。</p>
+<h2 id="三-配置-clash"><a href="#三-配置-clash" class="headerlink" title="三.配置 clash"></a>三.配置 clash</h2><p>右上角小猫咪点击测速确保你的机场能正常工作，然后打开增强模式。如果看到增强模式左边是一个 ✅ 则表明成功。</p>
+<h2 id="四-游戏机网络设置（以-NS-为例）"><a href="#四-游戏机网络设置（以-NS-为例）" class="headerlink" title="四.游戏机网络设置（以 NS 为例）"></a>四.游戏机网络设置（以 NS 为例）</h2><p>和使用第三方加速器一样来到互联网设置，确保你和当作旁路由的电脑处在一个网络之下</p>
 <blockquote>
-<p>1.IP地址设置➡️自动➡️改为手动<br>2.IP地址：其实这里按你的路由器地址前面三位保持一样改最后一位就行，我家的路由器是自动分配最后一位从5到250左右的数。比如我路由器的ip地址为192.168.31.1，那我可以改成192.168.31.233，如果不行可以试试多改换几个。<br>3.子网掩码：一般都是255.255.255.0，如果不是和你的路由器保持一致就行<br>4. <strong>网关</strong> ：这里是关键，要改成你作旁路由的电脑设置的ip地址，比如我上面设置了192.168.31.2，那我就要改成这个<br>下面一栏DNS设置➡️改为手动，首选DNS改为你作旁路由的电脑设置的ip地址，备用不填即可。</p>
+<p>1.IP 地址设置 ➡️ 自动 ➡️ 改为手动<br>2.IP 地址：其实这里按你的路由器地址前面三位保持一样改最后一位就行，我家的路由器是自动分配最后一位从 5 到 250 左右的数。比如我路由器的 ip 地址为 192.168.31.1，那我可以改成 192.168.31.233，如果不行可以试试多改换几个。 3.子网掩码：一般都是 255.255.255.0，如果不是和你的路由器保持一致就行 4. <strong>网关</strong> ：这里是关键，要改成你作旁路由的电脑设置的 ip 地址，比如我上面设置了 192.168.31.2，那我就要改成这个<br>下面一栏 DNS 设置 ➡️ 改为手动，首选 DNS 改为你作旁路由的电脑设置的 ip 地址，备用不填即可。</p>
 </blockquote>
 <h2 id="五-测试"><a href="#五-测试" class="headerlink" title="五.测试"></a>五.测试</h2><ol>
 <li>随便下载一个游戏试试</li>
-<li>ns自带网络测试，这里我一开始虽然下载很快但是NAT类型是F，试下改了下节点再测就是A了</li>
+<li>ns 自带网络测试，这里我一开始虽然下载很快但是 NAT 类型是 F，试下改了下节点再测就是 A 了</li>
 </ol>
 <h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><img src="/2024/01/16/%E4%BD%BF%E7%94%A8clash%E5%AF%B9%E6%B8%B8%E6%88%8F%E6%9C%BA%E8%BF%9B%E8%A1%8C%E5%8A%A0%E9%80%9F%E5%90%A7/display.jpeg" class>
+
 <blockquote>
-<p>虽然看着网络测试的上行和下行速度都不快，但是A类网，而且实际网速是可以跑满的，注意上面小猫咪那边流量有将近10MB&#x2F;s</p>
+<p>虽然看着网络测试的上行和下行速度都不快，但是 A 类网，而且实际网速是可以跑满的，注意上面小猫咪那边流量有将近 10MB&#x2F;s</p>
 </blockquote>
 
             
@@ -216,15 +217,15 @@
                 
                     
                     
-                        <img data-src="/images/tsunami.jpg" data-sizes="auto" alt="2024学习清单"
+                        <img data-src="/images/tsunami.jpg" data-sizes="auto" alt="Pandas入门筆記"
                              class="lazyload">
                     
                 
-                <a href="/2024/01/17/2024%E5%AD%A6%E4%B9%A0%E6%B8%85%E5%8D%95/"></a>
+                <a href="/2024/01/17/Pandas%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/"></a>
                 <div class="article-nav-caption">前一篇</div>
                 <h3 class="article-nav-title">
                     
-                        2024学习清单
+                        Pandas入门筆記
                     
                 </h3>
             </div>
@@ -234,15 +235,15 @@
                 
                     
                     
-                        <img data-src="/images/tsunami.jpg" data-sizes="auto" alt="长湴南大街的凌晨五点"
+                        <img data-src="/images/tsunami.jpg" data-sizes="auto" alt="一个用于学习python的小游戏demo"
                              class="lazyload">
                     
                 
-                <a href="/2023/11/19/%E9%95%BF%E6%B9%B4%E5%8D%97%E5%A4%A7%E8%A1%97%E7%9A%84%E5%87%8C%E6%99%A8%E4%BA%94%E7%82%B9/"></a>
+                <a href="/2023/11/12/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8Eunity%E7%9A%84programming-learning%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%84%E8%AE%BE%E6%83%B3%E7%9A%84demo/"></a>
                 <div class="article-nav-caption">后一篇</div>
                 <h3 class="article-nav-title">
                     
-                        长湴南大街的凌晨五点
+                        一个用于学习python的小游戏demo
                     
                 </h3>
             </div>
@@ -283,7 +284,7 @@
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
-                <div class="sidebar-state-number">10</div>
+                <div class="sidebar-state-number">13</div>
             </div>
         </div>
         <div class="sidebar-social">
@@ -348,7 +349,7 @@
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/clash/" style="font-size: 10px;">clash</a> <a href="/tags/game-console/" style="font-size: 10px;">game console</a> <a href="/tags/homework/" style="font-size: 10px;">homework</a> <a href="/tags/programming-learning/" style="font-size: 10px;">programming learning</a> <a href="/tags/to-do-list/" style="font-size: 10px;">to do list</a> <a href="/tags/unity2d/" style="font-size: 10px;">unity2d</a> <a href="/tags/%E4%BA%BA%E6%96%87/" style="font-size: 10px;">人文</a> <a href="/tags/%E5%B9%BF%E5%B7%9E/" style="font-size: 10px;">广州</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E6%9C%BA/" style="font-size: 10px;">游戏机</a> <a href="/tags/%E7%BF%BB%E5%A2%99/" style="font-size: 10px;">翻墙</a>
+            <a href="/tags/clash/" style="font-size: 20px;">clash</a> <a href="/tags/data-analysis/" style="font-size: 20px;">data analysis</a> <a href="/tags/game-console/" style="font-size: 20px;">game console</a> <a href="/tags/homework/" style="font-size: 20px;">homework</a> <a href="/tags/pandas/" style="font-size: 20px;">pandas</a> <a href="/tags/programming-learning/" style="font-size: 20px;">programming learning</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/to-do-list/" style="font-size: 20px;">to do list</a> <a href="/tags/unity2d/" style="font-size: 20px;">unity2d</a> <a href="/tags/%E4%BA%BA%E6%96%87/" style="font-size: 10px;">人文</a> <a href="/tags/%E5%B9%BF%E5%B7%9E/" style="font-size: 10px;">广州</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E6%9C%BA/" style="font-size: 20px;">游戏机</a> <a href="/tags/%E7%BF%BB%E5%A2%99/" style="font-size: 20px;">翻墙</a>
         </div>
     </div>
 
@@ -388,10 +389,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    2.7k
+                    3k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    00:10
+                    00:13
                 </div>
             
             
@@ -426,7 +427,7 @@
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
-                <div class="sidebar-state-number">10</div>
+                <div class="sidebar-state-number">13</div>
             </div>
         </div>
         <div class="sidebar-social">
