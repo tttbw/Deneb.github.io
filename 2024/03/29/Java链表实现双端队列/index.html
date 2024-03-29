@@ -11,7 +11,7 @@
 
   
   <title>
-    使用clash对游戏机进行加速吧 |
+    Java链表实现双端队列 |
     
     浪人隨筆
   </title>
@@ -25,23 +25,19 @@
   
 <link rel="stylesheet" href="/css/loader.css">
 
-  <meta name="description" content="一种用pc（本文macos）配合clash实现旁路网关以给游戏机加速的实操教程，手把手教你如何用clash对游戏机进行加速">
+  <meta name="description" content="My note for CS61B 18fall proj1.笔者自学cs61b 18fall proj1 的心得分享，如何用java实现链表双端队列">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用clash对游戏机进行加速吧">
-<meta property="og:url" content="https://deneb.life/2024/01/16/%E4%BD%BF%E7%94%A8clash%E5%AF%B9%E6%B8%B8%E6%88%8F%E6%9C%BA%E8%BF%9B%E8%A1%8C%E5%8A%A0%E9%80%9F%E5%90%A7/index.html">
+<meta property="og:title" content="Java链表实现双端队列">
+<meta property="og:url" content="https://deneb.life/2024/03/29/Java%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/index.html">
 <meta property="og:site_name" content="浪人隨筆">
-<meta property="og:description" content="一种用pc（本文macos）配合clash实现旁路网关以给游戏机加速的实操教程，手把手教你如何用clash对游戏机进行加速">
+<meta property="og:description" content="My note for CS61B 18fall proj1.笔者自学cs61b 18fall proj1 的心得分享，如何用java实现链表双端队列">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://deneb.life/2024/01/16/%E4%BD%BF%E7%94%A8clash%E5%AF%B9%E6%B8%B8%E6%88%8F%E6%9C%BA%E8%BF%9B%E8%A1%8C%E5%8A%A0%E9%80%9F%E5%90%A7/display.jpeg">
-<meta property="article:published_time" content="2024-01-15T16:39:49.000Z">
-<meta property="article:modified_time" content="2024-03-10T17:57:20.008Z">
+<meta property="article:published_time" content="2024-03-29T14:06:31.000Z">
+<meta property="article:modified_time" content="2024-03-29T16:41:10.661Z">
 <meta property="article:author" content="Deneb">
-<meta property="article:tag" content="clash">
-<meta property="article:tag" content="game console">
-<meta property="article:tag" content="游戏机">
-<meta property="article:tag" content="翻墙">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="data structrue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://deneb.life/2024/01/16/%E4%BD%BF%E7%94%A8clash%E5%AF%B9%E6%B8%B8%E6%88%8F%E6%9C%BA%E8%BF%9B%E8%A1%8C%E5%8A%A0%E9%80%9F%E5%90%A7/display.jpeg">
   
     <link rel="alternate" href="/atom.xml" title="浪人隨筆" type="application/atom+xml">
   
@@ -167,7 +163,7 @@
 </div>
 <header id="header">
   
-    <img fetchpriority="high" src="/images/tsunami.jpg" alt="使用clash对游戏机进行加速吧">
+    <img fetchpriority="high" src="/images/tsunami.jpg" alt="Java链表实现双端队列">
   
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
@@ -176,7 +172,7 @@
           
           
             <a href="/" id="logo">
-              <h1>使用clash对游戏机进行加速吧</h1>
+              <h1>Java链表实现双端队列</h1>
             </a>
           
         
@@ -193,18 +189,18 @@
 
         <div id="content" class="outer">
           
-          <section id="main"><article id="post-使用clash对游戏机进行加速吧" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-Java链表实现双端队列" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     <div class="article-meta">
       <div class="article-date wow slideInLeft">
-  <a href="/2024/01/16/%E4%BD%BF%E7%94%A8clash%E5%AF%B9%E6%B8%B8%E6%88%8F%E6%9C%BA%E8%BF%9B%E8%A1%8C%E5%8A%A0%E9%80%9F%E5%90%A7/" class="article-date-link">
-    <time datetime="2024-01-15T16:39:49.000Z" itemprop="datePublished">2024-01-16</time>
+  <a href="/2024/03/29/Java%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/" class="article-date-link">
+    <time datetime="2024-03-29T14:06:31.000Z" itemprop="datePublished">2024-03-29</time>
   </a>
 </div>
 
       
   <div class="article-category wow slideInLeft">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a>
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E5%88%86%E4%BA%AB/">学习分享</a>
   </div>
 
 
@@ -215,39 +211,92 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>写这篇博客的背景是笔者学会魔法上网后一直找不到可以简单地使用代理软件对游戏机（比如一个系统更新十几个小时的 NS）加速的教程，因为家里和宿舍都不是一个人，折腾路由器怕影响别人，所以摸索了一下发现了这个比较方便和适用大多数人（和用第三方加速期一样改下网络设置），能让游戏机等设备走电脑流量下载游玩游戏的方法.<br>参考博客：<a target="_blank" rel="noopener" href="https://qust.me/post/clashxProMac/">https://qust.me/post/clashxProMac/</a> 来自酱紫表</p>
+<p>这是笔者通过 ucb cs61b 18fall 自学数据结构完成proj1三个部分后写的笔记，笔者的实现放在了笔者的<a target="_blank" rel="noopener" href="https://github.com/tttbw/ucbCS61B">github仓库</a>,供参考。本文旨在记录个人的学习过程。笔者非 CS 科班出身，也没有什么过人的脑力，如果文章的实现和思路有错误，欢迎指出。如果想参考更好的代码，可以移步这个北大大佬的<a target="_blank" rel="noopener" href="https://github.com/PKUFlyingPig/CS61B">github仓库</a></p>
 </blockquote>
-<hr>
-<h2 id="一-前期准备清单（以下内容以笔者的-macbook-为例）"><a href="#一-前期准备清单（以下内容以笔者的-macbook-为例）" class="headerlink" title="一.前期准备清单（以下内容以笔者的 macbook 为例）"></a>一.前期准备清单（以下内容以笔者的 macbook 为例）</h2><blockquote>
-<p>1.clash x pro（windows 用 clash 即可，mac 必须是可以开启增强模式的 <strong>clash x pro</strong> ） 2.一个可以用的机场 3.本文默认读者会使用 clash 进行魔法上网</p>
-</blockquote>
-<h3 id="原理：通过电脑做旁路由，将游戏机的默认网关设置为电脑，从而让游戏机的流量全部走电脑上机场的流量"><a href="#原理：通过电脑做旁路由，将游戏机的默认网关设置为电脑，从而让游戏机的流量全部走电脑上机场的流量" class="headerlink" title="原理：通过电脑做旁路由，将游戏机的默认网关设置为电脑，从而让游戏机的流量全部走电脑上机场的流量"></a>原理：通过电脑做旁路由，将游戏机的默认网关设置为电脑，从而让游戏机的流量全部走电脑上机场的流量</h3><h2 id="二-配置电脑网络（以-macos-为例）"><a href="#二-配置电脑网络（以-macos-为例）" class="headerlink" title="二.配置电脑网络（以 macos 为例）"></a>二.配置电脑网络（以 macos 为例）</h2><h3 id="系统设置-➡️WIFI➡️-连接上你家的网络-➡️-详细信息-➡️TCP-IP➡️-配置-ipv4➡️-手动"><a href="#系统设置-➡️WIFI➡️-连接上你家的网络-➡️-详细信息-➡️TCP-IP➡️-配置-ipv4➡️-手动" class="headerlink" title="系统设置 ➡️WIFI➡️ 连接上你家的网络 ➡️ 详细信息 ➡️TCP&#x2F;IP➡️ 配置 ipv4➡️ 手动"></a>系统设置 ➡️WIFI➡️ 连接上你家的网络 ➡️ 详细信息 ➡️TCP&#x2F;IP➡️ 配置 ipv4➡️ 手动</h3><p>你会看到三项：ip 地址，子网掩码和路由器。选为手动配置 ipv4 后，将 ip 地址改为路由器地址最后一位随便换个数字，比如我的路由器地址是 192.168.31.1，那我就把我笔记本上网的 ip 地址改为 192.168.31.2，其他两项和自动时保持一致就行了。</p>
-<h2 id="三-配置-clash"><a href="#三-配置-clash" class="headerlink" title="三.配置 clash"></a>三.配置 clash</h2><p>右上角小猫咪点击测速确保你的机场能正常工作，然后打开增强模式。如果看到增强模式左边是一个 ✅ 则表明成功。</p>
-<h2 id="四-游戏机网络设置（以-NS-为例）"><a href="#四-游戏机网络设置（以-NS-为例）" class="headerlink" title="四.游戏机网络设置（以 NS 为例）"></a>四.游戏机网络设置（以 NS 为例）</h2><p>和使用第三方加速器一样来到互联网设置，确保你和当作旁路由的电脑处在一个网络之下</p>
-<blockquote>
-<p>1.IP 地址设置 ➡️ 自动 ➡️ 改为手动<br>2.IP 地址：其实这里按你的路由器地址前面三位保持一样改最后一位就行，我家的路由器是自动分配最后一位从 5 到 250 左右的数。比如我路由器的 ip 地址为 192.168.31.1，那我可以改成 192.168.31.233，如果不行可以试试多改换几个。 3.子网掩码：一般都是 255.255.255.0，如果不是和你的路由器保持一致就行 4. <strong>网关</strong> ：这里是关键，要改成你作旁路由的电脑设置的 ip 地址，比如我上面设置了 192.168.31.2，那我就要改成这个<br>下面一栏 DNS 设置 ➡️ 改为手动，首选 DNS 改为你作旁路由的电脑设置的 ip 地址，备用不填即可。</p>
-</blockquote>
-<h2 id="五-测试"><a href="#五-测试" class="headerlink" title="五.测试"></a>五.测试</h2><ol>
-<li>随便下载一个游戏试试</li>
-<li>ns 自带网络测试，这里我一开始虽然下载很快但是 NAT 类型是 F，试下改了下节点再测就是 A 了</li>
-</ol>
-<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><img src="/2024/01/16/%E4%BD%BF%E7%94%A8clash%E5%AF%B9%E6%B8%B8%E6%88%8F%E6%9C%BA%E8%BF%9B%E8%A1%8C%E5%8A%A0%E9%80%9F%E5%90%A7/display.jpeg" class>
+<h2 id="关于proj1"><a href="#关于proj1" class="headerlink" title="关于proj1"></a>关于proj1</h2><p>这个project在课程中分为了三个Part：</p>
+<ul>
+<li>PartA是让你写一个双端队列(Deque)的实现，并且要求分别用链表和数组实现，笔者比较懒很笨，只写了链表的实现，数组的实现可以参考上面的仓库或者网络，课程后面也会在proj1 gloden里面给出一个正确的套娃链表实现的数组实现，很有意思。本文章暂时分享到PartA，PartB和Golden其实并没有那么PartA那么难(也可能是写上手了)</li>
+<li>PartB是让你用写好的Deque作为数据结构写一个回文检查器，额外要实现的功能是“OffByN”即能判断差值为N的回文</li>
+<li>Part Golden是让你写一个PartA的autograder</li>
+</ul>
+<p>除此之外，从PartB开始，还会要求你给你的代码自己写test。</p>
+<h2 id="PartA-双端队列的链表实现"><a href="#PartA-双端队列的链表实现" class="headerlink" title="PartA 双端队列的链表实现"></a>PartA 双端队列的链表实现</h2><p>笔者认为这是proj1中最难的一部分，课程中给出了Deque的定义然后让学生手搓这个数据结构。笔者是一边盯着ppt中给出的图示一边敲出这个数据结构的：</p>
 
-<blockquote>
-<p>虽然看着网络测试的上行和下行速度都不快，但是 A 类网，而且实际网速是可以跑满的，注意上面小猫咪那边流量有将近 10MB&#x2F;s</p>
-</blockquote>
+<p>根据看图理解后得到的信息完成这个数据结构整体的要点大概有：</p>
+<ol>
+<li>在队列初始化时创建一个哨兵(sentinel)节点，这个节点始终在队列的最前端且不会被类里的<strong>任何方法</strong>访问</li>
+<li>每个节点都有prev和next两个成员，用于实现对前后两个节点的引用，图中的每一个箭头都是要实现的</li>
+<li>sentinel节点初始化时，它的prev端和next端指向自己</li>
+<li>对所有其他节点的访问都可以通过递归访问sentinel的next和prev来实现(比如想访问第三个节点，那么就是sentinel.next.next.next)，这点很重要</li>
+</ol>
+<p>结合以上三点可以就可以写出Deque的构造函数了，再深入思考增删改查等方法时你应该想到：</p>
+<ul>
+<li>实现核心的Add和Remove方法时，要注意prev和next的引用(指向)的修改。比如addFirst的时候要断开原头节点prev部分与sentinel节点next部分的互相连接，并将原头节点的prev部分与新头节点的next部分互相连接，还要将新节点的prev部分与sentinel的next部分进行互相连接。可能有点晕，笔者当时是把每一步都画图一步步把代码写下来的</li>
+<li>增删后记得检查是否实现了图中每一条箭头</li>
+</ul>
+<h2 id="接下来是笔者的实现"><a href="#接下来是笔者的实现" class="headerlink" title="接下来是笔者的实现"></a>接下来是笔者的实现</h2><h3 id="构造函数："><a href="#构造函数：" class="headerlink" title="构造函数："></a>构造函数：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> T value;</span><br><span class="line">        <span class="keyword">private</span> Node prev;</span><br><span class="line">        <span class="keyword">private</span> Node next;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">Node</span><span class="params">(T x, Node pre, Node nex)</span> &#123;</span><br><span class="line">            value = x;</span><br><span class="line">            next = nex;</span><br><span class="line">            prev = pre;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> Node sentinel;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> size;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LinkedListDeque</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">T</span> <span class="variable">meaningless</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">//初始化sentinel，让prev和next都指向自己</span></span><br><span class="line">        sentinel = <span class="keyword">new</span> <span class="title class_">Node</span>(meaningless, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">        sentinel.prev = sentinel;</span><br><span class="line">        sentinel.next = sentinel;</span><br><span class="line">        <span class="comment">//sentinel节点不算入size</span></span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="判断Deque是否为空："><a href="#判断Deque是否为空：" class="headerlink" title="判断Deque是否为空："></a>判断Deque是否为空：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当只有sentinel节点时，Deque为空</span></span><br><span class="line">   <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isEmpty</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> sentinel.next == sentinel;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="增删-Add，Remove-："><a href="#增删-Add，Remove-：" class="headerlink" title="增删(Add，Remove)："></a>增删(Add，Remove)：</h3><pre><code class="java">public void addFirst(T x) &#123;
+        size += 1;
+        //创建新头节点
+        Node Newnode = new Node(x, null, null);
+        //新头节点prev指向sentinel
+        Newnode.prev = sentinel;
+        //新头节点next指向原头节点(现在还被sentinel.next所引用)
+        Newnode.next = sentinel.next;
+        //原头节点的prev指向新头节点
+        sentinel.next.prev = Newnode;
+        //最后断开原来sentinel.next对原头节点的引用，让sentinel.next的引用变为新头节点。这一步要放在最后进行，否则会在前几步的修改中丢失对原头节点的引用
+        sentinel.next = Newnode;
+    &#125;
+----------------------------------------
+//下面代码同理，不再注释
+public void addLast(T x) &#123;
+        size += 1;
+        Node Newnode = new Node(x, null, null);
+        Newnode.prev = sentinel.prev;
+        Newnode.next = sentinel;
+        sentinel.prev.next = Newnode;
+        sentinel.prev = Newnode;
+    &#125;
+-----------------------------------------
+public T removeFirst() &#123;
+        if (sentinel.next == null) &#123;
+            return null;
+        &#125;
+        Node dropOne;
+        dropOne = sentinel.next;
+        sentinel.next.next.prev = sentinel;
+        sentinel.next = sentinel.next.next;
+        size --;
+        return dropOne.value;
+    &#125;
+-----------------------------------------
+public T removeLast() &#123;
+        if (sentinel.prev == null) &#123;
+            return null;
+        &#125;
+        Node dropOne;
+        dropOne = sentinel.prev;
+        sentinel.prev.prev.next = sentinel;
+        sentinel.prev = sentinel.prev.prev;
+        size --;
+        return dropOne.value;
+    &#125;
+</code></pre>
+<p>能写到这里，基本上之后的一些方法比如printDeque或者get的都很简单了，无非是选择迭代或者递归。<br>另外两个part有缘再写吧。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://deneb.life/2024/01/16/%E4%BD%BF%E7%94%A8clash%E5%AF%B9%E6%B8%B8%E6%88%8F%E6%9C%BA%E8%BF%9B%E8%A1%8C%E5%8A%A0%E9%80%9F%E5%90%A7/" data-id="clucwe47x0013vywbacms0pe4" data-title="使用clash对游戏机进行加速吧" class="article-share-link">分享</a>
+      <a data-url="https://deneb.life/2024/03/29/Java%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/" data-id="clucwe47r0006vywb4zra7mn5" data-title="Java链表实现双端队列" class="article-share-link">分享</a>
       
       
       
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/clash/" rel="tag">clash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/game-console/" rel="tag">game console</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E6%9C%BA/" rel="tag">游戏机</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BF%BB%E5%A2%99/" rel="tag">翻墙</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structrue/" rel="tag">data structrue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li></ul>
 
 
     </footer>
@@ -260,14 +309,14 @@
         
           
           
-            <img data-src="/images/tsunami.jpg" data-sizes="auto" alt="Pandas入门筆記" class="lazyload">
+            <img data-src="/images/tsunami.jpg" data-sizes="auto" alt="Java链表实现双端队列" class="lazyload">
           
         
-        <a href="/2024/01/17/Pandas%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/"></a>
+        <a href="/2024/03/29/Java%E5%AE%9E%E7%8E%B0%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/"></a>
         <div class="article-nav-caption">前一篇</div>
         <h3 class="article-nav-title">
           
-            Pandas入门筆記
+            Java链表实现双端队列
           
         </h3>
       </div>
@@ -277,14 +326,14 @@
       
         
         
-          <img data-src="/images/tsunami.jpg" data-sizes="auto" alt="一个用于学习python的小游戏demo" class="lazyload">
+          <img data-src="/images/tsunami.jpg" data-sizes="auto" alt="2024学习清单" class="lazyload">
         
       
-      <a href="/2023/11/12/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8Eunity%E7%9A%84programming-learning%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%84%E8%AE%BE%E6%83%B3%E7%9A%84demo/"></a>
+      <a href="/2024/01/17/2024%E5%AD%A6%E4%B9%A0%E6%B8%85%E5%8D%95/"></a>
       <div class="article-nav-caption">后一篇</div>
       <h3 class="article-nav-title">
         
-          一个用于学习python的小游戏demo
+          2024学习清单
         
       </h3>
     </div>
@@ -307,7 +356,7 @@
     
       <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
   <h3 class="toc-title">文章目录</h3>
-  <div class="sidebar-toc-wrapper"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87%E6%B8%85%E5%8D%95%EF%BC%88%E4%BB%A5%E4%B8%8B%E5%86%85%E5%AE%B9%E4%BB%A5%E7%AC%94%E8%80%85%E7%9A%84-macbook-%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">一.前期准备清单（以下内容以笔者的 macbook 为例）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%EF%BC%9A%E9%80%9A%E8%BF%87%E7%94%B5%E8%84%91%E5%81%9A%E6%97%81%E8%B7%AF%E7%94%B1%EF%BC%8C%E5%B0%86%E6%B8%B8%E6%88%8F%E6%9C%BA%E7%9A%84%E9%BB%98%E8%AE%A4%E7%BD%91%E5%85%B3%E8%AE%BE%E7%BD%AE%E4%B8%BA%E7%94%B5%E8%84%91%EF%BC%8C%E4%BB%8E%E8%80%8C%E8%AE%A9%E6%B8%B8%E6%88%8F%E6%9C%BA%E7%9A%84%E6%B5%81%E9%87%8F%E5%85%A8%E9%83%A8%E8%B5%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%9C%BA%E5%9C%BA%E7%9A%84%E6%B5%81%E9%87%8F"><span class="toc-number">1.1.</span> <span class="toc-text">原理：通过电脑做旁路由，将游戏机的默认网关设置为电脑，从而让游戏机的流量全部走电脑上机场的流量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E9%85%8D%E7%BD%AE%E7%94%B5%E8%84%91%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BB%A5-macos-%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">二.配置电脑网络（以 macos 为例）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE-%E2%9E%A1%EF%B8%8FWIFI%E2%9E%A1%EF%B8%8F-%E8%BF%9E%E6%8E%A5%E4%B8%8A%E4%BD%A0%E5%AE%B6%E7%9A%84%E7%BD%91%E7%BB%9C-%E2%9E%A1%EF%B8%8F-%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF-%E2%9E%A1%EF%B8%8FTCP-IP%E2%9E%A1%EF%B8%8F-%E9%85%8D%E7%BD%AE-ipv4%E2%9E%A1%EF%B8%8F-%E6%89%8B%E5%8A%A8"><span class="toc-number">2.1.</span> <span class="toc-text">系统设置 ➡️WIFI➡️ 连接上你家的网络 ➡️ 详细信息 ➡️TCP&#x2F;IP➡️ 配置 ipv4➡️ 手动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E9%85%8D%E7%BD%AE-clash"><span class="toc-number">3.</span> <span class="toc-text">三.配置 clash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E6%B8%B8%E6%88%8F%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE%EF%BC%88%E4%BB%A5-NS-%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">四.游戏机网络设置（以 NS 为例）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E6%B5%8B%E8%AF%95"><span class="toc-number">5.</span> <span class="toc-text">五.测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%E5%9B%BE"><span class="toc-number">6.</span> <span class="toc-text">效果图</span></a></li></ol></div>
+  <div class="sidebar-toc-wrapper"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8Eproj1"><span class="toc-number">1.</span> <span class="toc-text">关于proj1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PartA-%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97%E7%9A%84%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.</span> <span class="toc-text">PartA 双端队列的链表实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E6%98%AF%E7%AC%94%E8%80%85%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">接下来是笔者的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">构造函数：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%ADDeque%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%EF%BC%9A"><span class="toc-number">3.2.</span> <span class="toc-text">判断Deque是否为空：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%88%A0-Add%EF%BC%8CRemove-%EF%BC%9A"><span class="toc-number">3.3.</span> <span class="toc-text">增删(Add，Remove)：</span></a></li></ol></li></ol></div>
 </div>
 </div>
       <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -426,7 +475,7 @@
     
       <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
   <h3 class="toc-title">文章目录</h3>
-  <div class="sidebar-toc-wrapper"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87%E6%B8%85%E5%8D%95%EF%BC%88%E4%BB%A5%E4%B8%8B%E5%86%85%E5%AE%B9%E4%BB%A5%E7%AC%94%E8%80%85%E7%9A%84-macbook-%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">一.前期准备清单（以下内容以笔者的 macbook 为例）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%EF%BC%9A%E9%80%9A%E8%BF%87%E7%94%B5%E8%84%91%E5%81%9A%E6%97%81%E8%B7%AF%E7%94%B1%EF%BC%8C%E5%B0%86%E6%B8%B8%E6%88%8F%E6%9C%BA%E7%9A%84%E9%BB%98%E8%AE%A4%E7%BD%91%E5%85%B3%E8%AE%BE%E7%BD%AE%E4%B8%BA%E7%94%B5%E8%84%91%EF%BC%8C%E4%BB%8E%E8%80%8C%E8%AE%A9%E6%B8%B8%E6%88%8F%E6%9C%BA%E7%9A%84%E6%B5%81%E9%87%8F%E5%85%A8%E9%83%A8%E8%B5%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%9C%BA%E5%9C%BA%E7%9A%84%E6%B5%81%E9%87%8F"><span class="toc-number">1.1.</span> <span class="toc-text">原理：通过电脑做旁路由，将游戏机的默认网关设置为电脑，从而让游戏机的流量全部走电脑上机场的流量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E9%85%8D%E7%BD%AE%E7%94%B5%E8%84%91%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BB%A5-macos-%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">二.配置电脑网络（以 macos 为例）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE-%E2%9E%A1%EF%B8%8FWIFI%E2%9E%A1%EF%B8%8F-%E8%BF%9E%E6%8E%A5%E4%B8%8A%E4%BD%A0%E5%AE%B6%E7%9A%84%E7%BD%91%E7%BB%9C-%E2%9E%A1%EF%B8%8F-%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF-%E2%9E%A1%EF%B8%8FTCP-IP%E2%9E%A1%EF%B8%8F-%E9%85%8D%E7%BD%AE-ipv4%E2%9E%A1%EF%B8%8F-%E6%89%8B%E5%8A%A8"><span class="toc-number">2.1.</span> <span class="toc-text">系统设置 ➡️WIFI➡️ 连接上你家的网络 ➡️ 详细信息 ➡️TCP&#x2F;IP➡️ 配置 ipv4➡️ 手动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E9%85%8D%E7%BD%AE-clash"><span class="toc-number">3.</span> <span class="toc-text">三.配置 clash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E6%B8%B8%E6%88%8F%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE%EF%BC%88%E4%BB%A5-NS-%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">四.游戏机网络设置（以 NS 为例）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E6%B5%8B%E8%AF%95"><span class="toc-number">5.</span> <span class="toc-text">五.测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%E5%9B%BE"><span class="toc-number">6.</span> <span class="toc-text">效果图</span></a></li></ol></div>
+  <div class="sidebar-toc-wrapper"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8Eproj1"><span class="toc-number">1.</span> <span class="toc-text">关于proj1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PartA-%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97%E7%9A%84%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.</span> <span class="toc-text">PartA 双端队列的链表实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E6%98%AF%E7%AC%94%E8%80%85%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">接下来是笔者的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">构造函数：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%ADDeque%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%EF%BC%9A"><span class="toc-number">3.2.</span> <span class="toc-text">判断Deque是否为空：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%88%A0-Add%EF%BC%8CRemove-%EF%BC%9A"><span class="toc-number">3.3.</span> <span class="toc-text">增删(Add，Remove)：</span></a></li></ol></li></ol></div>
 </div>
 </div>
       <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
