@@ -125,27 +125,6 @@
   </url>
   
   <url>
-    <loc>https://deneb.life/tags/unity2d/</loc>
-    <lastmod>2024-03-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://deneb.life/tags/homework/</loc>
-    <lastmod>2024-03-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://deneb.life/tags/programming-learning/</loc>
-    <lastmod>2024-03-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://deneb.life/tags/clash/</loc>
     <lastmod>2024-03-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -173,6 +152,27 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://deneb.life/tags/unity2d/</loc>
+    <lastmod>2024-03-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://deneb.life/tags/homework/</loc>
+    <lastmod>2024-03-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://deneb.life/tags/programming-learning/</loc>
+    <lastmod>2024-03-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -183,14 +183,14 @@
   </url>
   
   <url>
-    <loc>https://deneb.life/categories/%E8%89%BA%E6%9C%AF%E5%88%9B%E4%BD%9C/</loc>
+    <loc>https://deneb.life/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/</loc>
     <lastmod>2024-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://deneb.life/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/</loc>
+    <loc>https://deneb.life/categories/%E8%89%BA%E6%9C%AF%E5%88%9B%E4%BD%9C/</loc>
     <lastmod>2024-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
