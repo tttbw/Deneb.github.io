@@ -33,7 +33,7 @@
 <meta property="og:description" content="笔者公选课的一个unity小游戏小作业">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-12T07:47:58.000Z">
-<meta property="article:modified_time" content="2024-03-10T17:34:49.248Z">
+<meta property="article:modified_time" content="2024-04-06T08:31:44.323Z">
 <meta property="article:author" content="Deneb">
 <meta property="article:tag" content="unity2d">
 <meta property="article:tag" content="homework">
@@ -240,14 +240,14 @@
 
 <hr>
 <ol start="3">
-<li><strong>RoadSigh</strong>:实现了通过对玩家与告示牌的检测（这里利用的是对图层的检测，为每个需要这个方法的 object 设定了不同且独一无二的的图层，并与玩家的模型的进行检测）对 DEMO 中 TIPS 的 <strong>UI 与 Terminal（玩家输入框）的隐藏和显示</strong>，这个脚本写的相当之糟糕，你如果阅读可以发现我把一个方法小改复制粘贴重复用了四次，这当然可以整合到一个抽象的方法里。</li>
+<li><strong>RoadSigh</strong>:实现了通过对玩家与告示牌的检测（这里利用的是对图层的检测，为每个需要这个方法的 object 设定了不同且独一无二的的图层，并与玩家的模型的进行检测）对 DEMO 中 TIPS 的 <strong>UI 与 Terminal（玩家输入框）的隐藏和显示</strong>。（这个脚本是笔者编程刚入门的时候写的，相当之糟糕，把一个方法小改复制粘贴重复用了四次…..）</li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">public class RoadSign : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    public Canvas signCanvas1;</span><br><span class="line">    public Canvas signCanvas2;</span><br><span class="line"></span><br><span class="line">    public Canvas signCancas3;</span><br><span class="line">    public Canvas Terminal;</span><br><span class="line"></span><br><span class="line">    public bool checkaround;</span><br><span class="line">    public GameObject aroundcheck;</span><br><span class="line">    public float checkRadius;</span><br><span class="line"></span><br><span class="line">    public LayerMask keiji1;</span><br><span class="line">    public LayerMask keiji2;</span><br><span class="line">    public LayerMask keiji3;</span><br><span class="line">    public LayerMask keiji4;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    // 在游戏开始时，隐藏画布</span><br><span class="line">    private void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        signCanvas1.enabled = false;</span><br><span class="line">        signCanvas2.enabled = false;</span><br><span class="line">        Terminal.enabled = false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 在每一帧更新时，检测玩家是否靠近或点击路牌</span><br><span class="line">    private void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        To_show_or_hide_1();</span><br><span class="line">        To_show_or_hide_2();</span><br><span class="line">        To_show_or_hide_3();</span><br><span class="line">        To_show_or_hide_4();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // check if show the canvas</span><br><span class="line">    void To_show_or_hide_1()&#123;</span><br><span class="line"></span><br><span class="line">        checkaround=Physics2D.OverlapCircle(aroundcheck.transform.position,checkRadius,keiji1);</span><br><span class="line">        if (checkaround == true)&#123;</span><br><span class="line">            signCanvas1.enabled = true;</span><br><span class="line">        &#125;</span><br><span class="line">        if (checkaround == false)&#123;</span><br><span class="line">            signCanvas1.enabled = false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    void To_show_or_hide_2()&#123;</span><br><span class="line"></span><br><span class="line">        checkaround=Physics2D.OverlapCircle(aroundcheck.transform.position,checkRadius,keiji2);</span><br><span class="line">        if (checkaround == true)&#123;</span><br><span class="line">            signCanvas2.enabled = true;</span><br><span class="line">        &#125;</span><br><span class="line">        if (checkaround == false)&#123;</span><br><span class="line">            signCanvas2.enabled = false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    void To_show_or_hide_3()&#123;</span><br><span class="line"></span><br><span class="line">        checkaround=Physics2D.OverlapCircle(aroundcheck.transform.position,checkRadius,keiji3);</span><br><span class="line">        if (checkaround == true)&#123;</span><br><span class="line">            Terminal.enabled = true;</span><br><span class="line">        &#125;</span><br><span class="line">        if (checkaround == false)&#123;</span><br><span class="line">            Terminal.enabled = false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">     void To_show_or_hide_4()&#123;</span><br><span class="line"></span><br><span class="line">        checkaround=Physics2D.OverlapCircle(aroundcheck.transform.position,checkRadius,keiji4);</span><br><span class="line">        if (checkaround == true)&#123;</span><br><span class="line">            signCancas3.enabled = true;</span><br><span class="line">        &#125;</span><br><span class="line">        if (checkaround == false)&#123;</span><br><span class="line">            signCancas3.enabled = false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">     private void OnDrawGizmosSelected() &#123;</span><br><span class="line">        Gizmos.color=Color.blue;</span><br><span class="line">        Gizmos.DrawWireSphere(aroundcheck.transform.position,checkRadius);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://deneb.life/2023/11/12/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8Eunity%E7%9A%84programming-learning%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%84%E8%AE%BE%E6%83%B3%E7%9A%84demo/" data-id="cluji91xv0006i3wba63bcogo" data-title="一个用于学习python的小游戏demo" class="article-share-link">分享</a>
+      <a data-url="https://deneb.life/2023/11/12/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8Eunity%E7%9A%84programming-learning%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%84%E8%AE%BE%E6%83%B3%E7%9A%84demo/" data-id="clunu8ft600072uwbcpuahs68" data-title="一个用于学习python的小游戏demo" class="article-share-link">分享</a>
       
       
       
@@ -325,15 +325,15 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">6</div>
+    <div class="sidebar-state-number">7</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
-    <div class="sidebar-state-number">3</div>
+    <div class="sidebar-state-number">4</div>
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">13</div>
+    <div class="sidebar-state-number">14</div>
   </div>
 </div>
 <div class="sidebar-social">
@@ -403,10 +403,10 @@
       
         <div>
           <span class="icon-brush"></span>
-          4.1k
+          5.1k
           &nbsp;|&nbsp;
           <span class="icon-coffee"></span>
-          00:17
+          00:21
         </div>
       
       
@@ -444,15 +444,15 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">6</div>
+    <div class="sidebar-state-number">7</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
-    <div class="sidebar-state-number">3</div>
+    <div class="sidebar-state-number">4</div>
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">13</div>
+    <div class="sidebar-state-number">14</div>
   </div>
 </div>
 <div class="sidebar-social">
